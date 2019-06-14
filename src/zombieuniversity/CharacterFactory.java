@@ -3,6 +3,7 @@ package zombieuniversity;
 import java.util.Random;
 import zombieuniversity.character.Zombie;
 import zombieuniversity.character.CommonInfect;
+import zombieuniversity.character.Survivor;
 import zombieuniversity.character.Tank;
 
 /**
@@ -35,6 +36,24 @@ public class CharacterFactory {
                 return new Tank();
             }
     }
+    
+     /**
+      * This piece of code represents the randomized generation of the survivor 
+      * type.
+      * @return 
+      */
+    /*public Survivor randomSurvivorType(){
+        int xand = randomInt(0,2);
+            if (xand ==0){
+            return new Child();
+            }
+            else if(xand ==1){
+                    
+            return new Teacher();
+            }
+    else return new Soldier();
+    }
+    */
     /**
      * Using the randomInt and randomZombieType methods, generates an array of random size
      * (inside the specified range) and populates it randomly with Zombie types.
@@ -48,5 +67,20 @@ public class CharacterFactory {
         }
         return zombieHoard;
     }
-
+    
+    /**
+     * Using the randomInt and randomSurvivorType methods, generates an array of random size
+     * (inside the specified range) and populates it randomly with Survivor types.
+     * @return Return an array of Survivors that has been randomly generated.
+     * @return 
+     */
+/*public Survivor[] randomSurvivorArray() {
+        int rand = randomInt(0, 35);
+        Survivor[] foxTrotCharlie = new Survivor[rand];
+        for (int i = 0; i < foxTrotCharlie.length; i++) {
+            foxTrotCharlie[i]=randomSurvivorType();
+        }
+        return foxTrotCharlie;
+}
+*/
 }
