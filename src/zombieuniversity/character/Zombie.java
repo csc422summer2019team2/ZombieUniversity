@@ -1,12 +1,12 @@
-package zombieuniversity;
+package zombieuniversity.character;
 
-public abstract class Survivor extends Character {
+public abstract class Zombie extends Character {
     /**
-     * Initialize a survivor
+     * Initialize a zombie
      * @param maxHealth maximum health of the character
      * @param damage    damage of the character
      */
-    protected Survivor(int maxHealth, int damage) {
+    protected Zombie(int maxHealth, int damage) {
         super(maxHealth, damage);
     }
 }

@@ -1,4 +1,4 @@
-package zombieuniversity;
+package zombieuniversity.character;
 
 public abstract class Character {
     /**
