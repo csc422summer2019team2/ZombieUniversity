@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package zombieuniversity;
-
+import zombieuniversity.character.*;
 /**
  *
  * @author Paul
