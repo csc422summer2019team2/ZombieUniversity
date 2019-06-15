@@ -26,11 +26,13 @@ public class CharacterFactory {
      * @return Returns a random Zombie type 
      */
     public Zombie randomZombieType(){
-        int xand = randomInt(0, 1);
-        if (xand == 0) {
-            return new CommonInfect();
-        } else {
-            return new Tank();
+        switch(randomInt(0, 1)) {
+            case 0:
+                return new CommonInfect();
+            case 1:
+                return new Tank();
+            default:
+                throw new UnsupportedOperationException();
         }
     }
     
@@ -40,15 +42,15 @@ public class CharacterFactory {
      * @return Returns a random Survivor type 
      */
     public Survivor randomSurvivorType(){
-        int xand = randomInt(0,2);
-        if (xand == 0) {
-            return new Child();
-        }
-        else if(xand == 1){   
-            return new Teacher();
-        }
-        else {
-            return new Soldier();
+        switch(randomInt(0, 2)) {
+            case 0:
+                return new Child();
+            case 1:
+                return new Teacher();
+            case 2:
+                return new Soldier();
+            default:
+                throw new UnsupportedOperationException();
         }
     }
     /**
