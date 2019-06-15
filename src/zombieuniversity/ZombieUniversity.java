@@ -33,7 +33,7 @@ class CharacterOrder {
             for (int d = 0; d < defenders.length; d++) {
                 if (attackers[a].isAlive()) {
                     attackers[a].attack(defenders[d]);
-                   /* 
+                   /*
                     System.out.println(attackers[a].toString() + " attacked " + defenders[d].toString()
                             + ". the defender's health is now " + defenders[d].getHealth());
                     */
@@ -55,14 +55,14 @@ class CharacterOrder {
 
         }
         
-            int numAlive = 0;
-            for (Character c : survivors) {
-                if (c.isAlive()) {
-                    numAlive++;
-                }
+        int numAlive = 0;
+        for (Character c : survivors) {
+            if (c.isAlive()) {
+                numAlive++;
             }
-            System.out.println("It seems that " + numAlive + " have made it to safety.");
-        
+        }
+        System.out.println("It seems that " + numAlive + " have made it to safety.");
+
     }
 
 }
