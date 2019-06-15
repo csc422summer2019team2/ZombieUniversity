@@ -74,7 +74,7 @@ public class ZombieUniversity {
      */
     public static void main(String[] args) {
 
-        Zombie[] survivors = new CharacterFactory().randomZombieArray();
+        Survivor[] survivors = new CharacterFactory().randomSurvivorArray();
         Zombie[] zombies = new CharacterFactory().randomZombieArray();
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.\n"
                 + "But there are " + zombies.length + " zombies waiting for them.");
