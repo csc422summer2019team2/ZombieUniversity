@@ -21,10 +21,7 @@ class CharacterOrder {
                 alive++;
             }
         }
-        if (alive <= 0) {
-            return true;
-        }
-        return false;
+        return alive == 0;
     }
 
     public void attackCycle(Character[] attackers, Character[] defenders) {
@@ -33,38 +30,36 @@ class CharacterOrder {
             for (int d = 0; d < defenders.length; d++) {
                 if (attackers[a].isAlive()) {
                     attackers[a].attack(defenders[d]);
-                   /* 
+                   /*
                     System.out.println(attackers[a].toString() + " attacked " + defenders[d].toString()
                             + ". the defender's health is now " + defenders[d].getHealth());
                     */
                 }
             }
-
         }
     }
 
     public void attackRotation(Character[] survivors, Character[] zombies) {
-        boolean cont = true;
+        // Set this to true if we have at least 1 in each array.
+        boolean cont = zombies.length > 0 && survivors.length > 0;
         while (cont) {
             attackCycle(survivors, zombies);
             attackCycle(zombies, survivors);
-            if (endScenario(survivors) || endScenario(zombies) || zombies.length == 0 || survivors.length == 0) {
+            if (endScenario(survivors) || endScenario(zombies)) {
                 cont = false;
                 break;
             }
-
         }
         
-            int numAlive = 0;
-            for (Character c : survivors) {
-                if (c.isAlive()) {
-                    numAlive++;
-                }
+        // Count the remaining alive survivors
+        int numAlive = 0;
+        for (Character c : survivors) {
+            if (c.isAlive()) {
+                numAlive++;
             }
-            System.out.println("It seems that " + numAlive + " have made it to safety.");
-        
+        }
+        System.out.println("It seems that " + numAlive + " have made it to safety.");
     }
-
 }
 
 public class ZombieUniversity {
@@ -74,8 +69,8 @@ public class ZombieUniversity {
      */
     public static void main(String[] args) {
 
-        Zombie[] survivors = new CharacterFactory().randomZombieArray();
-        Zombie[] zombies = new CharacterFactory().randomZombieArray();
+        Survivor[] survivors = new CharacterFactory().randomSurvivorArray(0, 35);
+        Zombie[] zombies = new CharacterFactory().randomZombieArray(0, 25);
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.\n"
                 + "But there are " + zombies.length + " zombies waiting for them.");
         CharacterOrder master = new CharacterOrder();
