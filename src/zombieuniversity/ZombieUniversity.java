@@ -21,10 +21,7 @@ class CharacterOrder {
                 alive++;
             }
         }
-        if (alive <= 0) {
-            return true;
-        }
-        return false;
+        return alive == 0;
     }
 
     public void attackCycle(Character[] attackers, Character[] defenders) {
