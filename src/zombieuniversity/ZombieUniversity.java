@@ -74,8 +74,8 @@ public class ZombieUniversity {
      */
     public static void main(String[] args) {
 
-        Survivor[] survivors = new CharacterFactory().randomSurvivorArray();
-        Zombie[] zombies = new CharacterFactory().randomZombieArray();
+        Survivor[] survivors = new CharacterFactory().randomSurvivorArray(0, 35);
+        Zombie[] zombies = new CharacterFactory().randomZombieArray(0, 25);
         System.out.println("We have " + survivors.length + " survivors trying to make it to safety.\n"
                 + "But there are " + zombies.length + " zombies waiting for them.");
         CharacterOrder master = new CharacterOrder();

@@ -56,10 +56,12 @@ public class CharacterFactory {
     /**
      * Using the randomInt and randomZombieType methods, generates an array of random size
      * (inside the specified range) and populates it randomly with Zombie types.
+     * @param min Minimum number of zombies
+     * @param max Maximum number of zombies (inclusive)
      * @return Return an array of Zombies that has been randomly generated.
      */
-    public Zombie[] randomZombieArray() {
-        int rand = randomInt(0, 25);
+    public Zombie[] randomZombieArray(int min, int max) {
+        int rand = randomInt(min, max);
         Zombie[] zombieHoard = new Zombie[rand];
         for (int i = 0; i < zombieHoard.length; i++) {
             zombieHoard[i]=randomZombieType();
@@ -70,10 +72,12 @@ public class CharacterFactory {
     /**
      * Using the randomInt and randomSurvivorType methods, generates an array of random size
      * (inside the specified range) and populates it randomly with Survivor types.
+     * @param min Minimum number of survivors
+     * @param max Maximum number of survivors (inclusive)
      * @return Return an array of Survivors that has been randomly generated.
      */
-    public Survivor[] randomSurvivorArray() {
-        int rand = randomInt(0, 35);
+    public Survivor[] randomSurvivorArray(int min, int max) {
+        int rand = randomInt(min, max);
         Survivor[] foxTrotCharlie = new Survivor[rand];
         for (int i = 0; i < foxTrotCharlie.length; i++) {
             foxTrotCharlie[i]=randomSurvivorType();
