@@ -36,22 +36,22 @@ class CharacterOrder {
                     */
                 }
             }
-
         }
     }
 
     public void attackRotation(Character[] survivors, Character[] zombies) {
-        boolean cont = true;
+        // Set this to true if we have at least 1 in each array.
+        boolean cont = zombies.length > 0 && survivors.length > 0;
         while (cont) {
             attackCycle(survivors, zombies);
             attackCycle(zombies, survivors);
-            if (endScenario(survivors) || endScenario(zombies) || zombies.length == 0 || survivors.length == 0) {
+            if (endScenario(survivors) || endScenario(zombies)) {
                 cont = false;
                 break;
             }
-
         }
         
+        // Count the remaining alive survivors
         int numAlive = 0;
         for (Character c : survivors) {
             if (c.isAlive()) {
@@ -59,9 +59,7 @@ class CharacterOrder {
             }
         }
         System.out.println("It seems that " + numAlive + " have made it to safety.");
-
     }
-
 }
 
 public class ZombieUniversity {
