@@ -24,14 +24,10 @@ class CharacterOrder {
 
     public void attackCycle(Character[] attackers, Character[] defenders) {
         for (int a = 0; a < attackers.length; a++) {
-            //every zombie in attackers attack every zombie in defenders exactly once
+            //every living character in attackers attack every living character in defenders exactly once
             for (int d = 0; d < defenders.length; d++) {
-                if (attackers[a].isAlive()) {
+                if (attackers[a].isAlive() && defenders[d].isAlive()) {
                     attackers[a].attack(defenders[d]);
-                   /*
-                    System.out.println(attackers[a].toString() + " attacked " + defenders[d].toString()
-                            + ". the defender's health is now " + defenders[d].getHealth());
-                    */
                 }
             }
         }
