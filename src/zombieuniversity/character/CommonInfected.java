@@ -1,7 +1,7 @@
 package zombieuniversity.character;
 
-public class CommonInfect extends Zombie {
-    public CommonInfect() {
+public class CommonInfected extends Zombie {
+    public CommonInfected() {
         super(30, 5);
     }
     

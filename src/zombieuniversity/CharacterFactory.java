@@ -31,7 +31,7 @@ public class CharacterFactory {
     public Zombie randomZombieType(){
         switch(randomInt(0, 1)) {
             case 0:
-                return new CommonInfect();
+                return new CommonInfected();
             case 1:
                 return new Tank();
             default:
