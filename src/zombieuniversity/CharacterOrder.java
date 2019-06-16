@@ -49,6 +49,18 @@ class CharacterOrder {
                 numAlive++;
             }
         }
-        System.out.println("It seems that " + numAlive + " have made it to safety.");
+        
+        // Show the results
+        switch (survivors.length) {
+            case 0:
+                System.out.println("None of the survivors made it.");
+                break;
+            case 1:
+                System.out.println("It seems one has made it to safety.");
+                break;
+            default:
+                System.out.printf("It seems %d have made it to safety.\n", survivors.length);
+                break;
+        }
     }
 }
