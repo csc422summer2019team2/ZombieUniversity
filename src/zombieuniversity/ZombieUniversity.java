@@ -13,7 +13,6 @@ import zombieuniversity.character.Character;
  * @author Paul, Ian, Daniel
  */
 class CharacterOrder {
-
     public static boolean endScenario(Character[] characters) {
         int alive = 0;
         for (int i = 0; i < characters.length; i++) {
@@ -40,14 +39,11 @@ class CharacterOrder {
     }
 
     public void attackRotation(Character[] survivors, Character[] zombies) {
-        // Set this to true if we have at least 1 in each array.
-        boolean cont = zombies.length > 0 && survivors.length > 0;
-        while (cont) {
-            attackCycle(survivors, zombies);
-            attackCycle(zombies, survivors);
-            if (endScenario(survivors) || endScenario(zombies)) {
-                cont = false;
-                break;
+        // Loop if we have at least 1 element in both arrays
+        if(zombies.length > 0 && survivors.length > 0) {
+            while (!endScenario(survivors) && !endScenario(zombies)) {
+                attackCycle(survivors, zombies);
+                attackCycle(zombies, survivors);
             }
         }
         
