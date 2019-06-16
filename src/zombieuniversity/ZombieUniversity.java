@@ -14,8 +14,8 @@ public class ZombieUniversity {
      */
     public static void main(String[] args) {
 
-        Survivor[] survivors = new CharacterFactory().randomSurvivorArray(0, 35);
-        Zombie[] zombies = new CharacterFactory().randomZombieArray(0, 25);
+        Survivor[] survivors = new CharacterFactory().randomSurvivorArray(0, 20);
+        Zombie[] zombies = new CharacterFactory().randomZombieArray(0, 15);
         
         // Count the number of character types in each array
         int teachers = 0, soldiers = 0, children = 0;
