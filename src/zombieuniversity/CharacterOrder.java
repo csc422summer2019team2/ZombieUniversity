@@ -51,7 +51,7 @@ class CharacterOrder {
         }
         
         // Show the results
-        switch (survivors.length) {
+        switch (numAlive) {
             case 0:
                 System.out.println("None of the survivors made it.");
                 break;
