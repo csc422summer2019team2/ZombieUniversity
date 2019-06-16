@@ -47,6 +47,33 @@ public abstract class Character {
      */
     public abstract String typeName();
     
+    /**
+     * Get the name of the character
+     * @return name of the character
+     */
+    public String getName() {
+        return name;
+    }
+    
+    /**
+     * Set the name of the character
+     * @param newName new name of the character
+     */
+    public void setName(String newName) {
+        name = newName;
+    }
+    
+    @Override
+    public String toString() {
+        if(name == null) {
+            return typeName();
+        }
+        else {
+            return String.format("%s %s", typeName(), name);
+        }
+    }
+    
     private int health;
     private int damage;
+    private String name;
 }
