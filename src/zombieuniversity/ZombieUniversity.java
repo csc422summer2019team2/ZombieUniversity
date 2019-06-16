@@ -6,61 +6,6 @@
 package zombieuniversity;
 
 import zombieuniversity.character.*;
-import zombieuniversity.character.Character;
-
-/**
- *
- * @author Paul, Ian, Daniel
- */
-class CharacterOrder {
-
-    public static boolean endScenario(Character[] characters) {
-        int alive = 0;
-        for (int i = 0; i < characters.length; i++) {
-            if (characters[i].isAlive()) {
-                alive++;
-            }
-        }
-        return alive == 0;
-    }
-
-    public void attackCycle(Character[] attackers, Character[] defenders) {
-        for (int a = 0; a < attackers.length; a++) {
-            //every zombie in attackers attack every zombie in defenders exactly once
-            for (int d = 0; d < defenders.length; d++) {
-                if (attackers[a].isAlive()) {
-                    attackers[a].attack(defenders[d]);
-                   /*
-                    System.out.println(attackers[a].toString() + " attacked " + defenders[d].toString()
-                            + ". the defender's health is now " + defenders[d].getHealth());
-                    */
-                }
-            }
-        }
-    }
-
-    public void attackRotation(Character[] survivors, Character[] zombies) {
-        // Set this to true if we have at least 1 in each array.
-        boolean cont = zombies.length > 0 && survivors.length > 0;
-        while (cont) {
-            attackCycle(survivors, zombies);
-            attackCycle(zombies, survivors);
-            if (endScenario(survivors) || endScenario(zombies)) {
-                cont = false;
-                break;
-            }
-        }
-        
-        // Count the remaining alive survivors
-        int numAlive = 0;
-        for (Character c : survivors) {
-            if (c.isAlive()) {
-                numAlive++;
-            }
-        }
-        System.out.println("It seems that " + numAlive + " have made it to safety.");
-    }
-}
 
 public class ZombieUniversity {
 
@@ -68,11 +13,57 @@ public class ZombieUniversity {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         Survivor[] survivors = new CharacterFactory().randomSurvivorArray(0, 35);
         Zombie[] zombies = new CharacterFactory().randomZombieArray(0, 25);
-        System.out.println("We have " + survivors.length + " survivors trying to make it to safety.\n"
-                + "But there are " + zombies.length + " zombies waiting for them.");
+        
+        // Count the number of character types in each array
+        int teachers = 0, soldiers = 0, children = 0;
+        int commonInfected = 0, tanks = 0;
+        
+        for(Survivor s : survivors) {
+            if(s instanceof Child) {
+                children++;
+            }
+            else if(s instanceof Soldier) {
+                soldiers++;
+            }
+            else if(s instanceof Teacher) {
+                teachers++;
+            }
+        }
+        for(Zombie z : zombies) {
+            if(z instanceof CommonInfected) {
+                commonInfected++;
+            }
+            else if(z instanceof Tank) {
+                tanks++;
+            }
+        }
+        
+        // Output the number of survivors.
+        System.out.printf(
+                "We have %d survivor%s trying to make it to safety (%d child%s, %d teacher%s, %d soldier%s)\n",
+                survivors.length,
+                survivors.length == 1 ? "" : "s",
+                children,
+                children == 1 ? "" : "ren",
+                teachers,
+                teachers == 1 ? "" : "s",
+                soldiers,
+                soldiers == 1 ? "" : "s"
+        );
+        
+        // Output the number of zombies
+        System.out.printf(
+                "But there are %d zombie%s waiting for them (%d common infected, %d tank%s)\n",
+                zombies.length,
+                zombies.length == 1 ? "" : "s",
+                commonInfected,
+                tanks,
+                tanks == 1 ? "" : "s"
+        );
+        
         CharacterOrder master = new CharacterOrder();
         master.attackRotation(survivors, zombies);
 

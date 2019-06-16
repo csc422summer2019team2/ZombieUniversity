@@ -6,9 +6,15 @@ public abstract class Character {
      * @param otherCharacter 
      */
     public void attack(Character otherCharacter) {
-        // If we are going below 0, set it to 0
-        if(otherCharacter.health < damage) {
+        // If the other character is dead, then there is nothing to be done
+        if(!otherCharacter.isAlive()) {
+            return;
+        }
+        
+        // If we are going below 0, set it to 0 and output to the kill feed
+        if(otherCharacter.health <= damage) {
             otherCharacter.health = 0;
+            System.out.printf("    %s killed %s\n", this, otherCharacter);
         }
         else {
             otherCharacter.health -= damage;
@@ -41,9 +47,39 @@ public abstract class Character {
         this.damage = damage;
     }
     
+    /**
+     * Get the name of the type
+     * @return the name of the type
+     */
+    public abstract String getTypeName();
+    
+    /**
+     * Get the name of the character
+     * @return name of the character
+     */
+    public String getName() {
+        return name;
+    }
+    
+    /**
+     * Set the name of the character
+     * @param newName new name of the character
+     */
+    public void setName(String newName) {
+        name = newName;
+    }
+    
     @Override
-    public abstract String toString();
+    public String toString() {
+        if(name == null) {
+            return getTypeName();
+        }
+        else {
+            return String.format("%s %s", getTypeName(), name);
+        }
+    }
     
     private int health;
     private int damage;
+    private String name;
 }

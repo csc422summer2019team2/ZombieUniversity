@@ -7,7 +7,7 @@ public class Soldier extends Survivor {         //inheriting the property of sur
     }
     
     @Override
-    public String toString() {
+    public String getTypeName() {
         return "Soldier";
     }
 }
