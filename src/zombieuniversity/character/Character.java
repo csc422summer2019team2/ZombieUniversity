@@ -45,7 +45,7 @@ public abstract class Character {
      * Get the name of the type
      * @return the name of the type
      */
-    public abstract String typeName();
+    public abstract String getTypeName();
     
     /**
      * Get the name of the character
@@ -66,10 +66,10 @@ public abstract class Character {
     @Override
     public String toString() {
         if(name == null) {
-            return typeName();
+            return getTypeName();
         }
         else {
-            return String.format("%s %s", typeName(), name);
+            return String.format("%s %s", getTypeName(), name);
         }
     }
     

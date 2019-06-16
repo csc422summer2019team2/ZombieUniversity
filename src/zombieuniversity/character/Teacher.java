@@ -6,7 +6,7 @@ public class Teacher extends Survivor {         //inheriting the property of sur
     }
     
     @Override
-    public String typeName() {
+    public String getTypeName() {
         return "Teacher";
     }
 }

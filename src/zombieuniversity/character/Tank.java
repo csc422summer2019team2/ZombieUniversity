@@ -6,7 +6,7 @@ public class Tank extends Zombie {
     }
     
     @Override
-    public String typeName() {
+    public String getTypeName() {
         return "Tank";
     }
 }
