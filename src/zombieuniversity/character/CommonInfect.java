@@ -6,7 +6,7 @@ public class CommonInfect extends Zombie {
     }
     
     @Override
-    public String toString() {
+    public String typeName() {
         return "Common Infected";
     }
 }

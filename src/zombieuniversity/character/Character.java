@@ -41,8 +41,11 @@ public abstract class Character {
         this.damage = damage;
     }
     
-    @Override
-    public abstract String toString();
+    /**
+     * Get the name of the type
+     * @return the name of the type
+     */
+    public abstract String typeName();
     
     private int health;
     private int damage;

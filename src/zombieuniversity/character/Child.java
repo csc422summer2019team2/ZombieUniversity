@@ -6,7 +6,7 @@ public class Child extends Survivor {         //inheriting the property of survi
     }
     
     @Override
-    public String toString() {
+    public String typeName() {
         return "Child";
     }
 }
