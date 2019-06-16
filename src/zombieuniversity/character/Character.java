@@ -6,9 +6,15 @@ public abstract class Character {
      * @param otherCharacter 
      */
     public void attack(Character otherCharacter) {
-        // If we are going below 0, set it to 0
-        if(otherCharacter.health < damage) {
+        // If the other character is dead, then there is nothing to be done
+        if(!otherCharacter.isAlive()) {
+            return;
+        }
+        
+        // If we are going below 0, set it to 0 and output to the kill feed
+        if(otherCharacter.health <= damage) {
             otherCharacter.health = 0;
+            System.out.printf("    %s killed %s\n", this, otherCharacter);
         }
         else {
             otherCharacter.health -= damage;
