@@ -19,7 +19,7 @@ public class CharacterFactory {
      */
     public int randomInt(int min, int max) {
         Random r = new Random();
-        int random = r.nextInt((max - min) + 1);
+        int random = min + r.nextInt((max - min) + 1);
         return random;
     }
     
