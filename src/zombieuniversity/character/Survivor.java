@@ -32,4 +32,19 @@ public abstract class Survivor extends Character {
     public void setWeapon(IWeapon weapon) {
         this.weapon = weapon;
     }
+    
+    @Override
+    public String toString() {
+        // Get our weapon name
+        String weaponName;
+        if(weapon == null) {
+            weaponName = "Unarmed";
+        }
+        else {
+            weaponName = weapon.toString();
+        }
+        
+        // Combine the name with the weapon
+        return String.format("%s (%s)", super.toString(), weaponName);
+    }
 }
