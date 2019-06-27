@@ -28,9 +28,12 @@ public abstract class Survivor extends Character {
     public void setWeapon(IWeapon weapon) {
         this.weapon = weapon;
         
+        // If we're losing our weapon, restore the unarmed damage
         if(weapon == null) {
             setDamage(unarmedDamage);
         }
+        
+        // If not, get the damage of the new weapon
         else {
             setDamage(weapon.getDamage());
         }
