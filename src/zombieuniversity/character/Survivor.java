@@ -1,5 +1,6 @@
 package zombieuniversity.character;
 
+import java.util.Random;
 import zombieuniversity.character.weapon.IWeapon;
 
 public abstract class Survivor extends Character {
@@ -36,6 +37,15 @@ public abstract class Survivor extends Character {
         // If not, get the damage of the new weapon
         else {
             setDamage(weapon.getDamage());
+        }
+    }
+    
+    @Override
+    public void attack(Character otherCharacter) {
+        // If we don't have a weapon or our weapon is 100% accurate, then we can hit. If we do have a weapon, generate
+        // a number between 0 and 99 to determine if we hit.
+        if(weapon == null || weapon.getAccuracy() >= 100 || weapon.getAccuracy() >= (new Random()).nextInt(100)) {
+            super.attack(otherCharacter);
         }
     }
     
