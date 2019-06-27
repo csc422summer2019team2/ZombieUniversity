@@ -30,6 +30,22 @@ public abstract class Character {
     }
     
     /**
+     * Set the damage of the character
+     * @param damage new damage of the character
+     */
+    protected void setDamage(int damage) {
+        this.damage = damage;
+    }
+    
+    /**
+     * Get the damage of the character
+     * @return damage of the character
+     */
+    public int getDamage() {
+        return damage;
+    }
+    
+    /**
      * Get the health of the character
      * @return true if the character has at least 0 health
      */
@@ -68,7 +84,6 @@ public abstract class Character {
     public void setName(String newName) {
         name = newName;
     }
-    
     @Override
     public String toString() {
         if(name == null) {

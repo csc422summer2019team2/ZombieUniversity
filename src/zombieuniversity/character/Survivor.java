@@ -10,12 +10,8 @@ public abstract class Survivor extends Character {
      */
     protected Survivor(int maxHealth, int damage) {
         super(maxHealth, damage);
+        unarmedDamage = damage;
     }
-    
-    /**
-     * This is the weapon held by the character
-     */
-    private IWeapon weapon;
     
     /**
      * Get the weapon held by the character
@@ -31,6 +27,13 @@ public abstract class Survivor extends Character {
      */
     public void setWeapon(IWeapon weapon) {
         this.weapon = weapon;
+        
+        if(weapon == null) {
+            setDamage(unarmedDamage);
+        }
+        else {
+            setDamage(weapon.getDamage());
+        }
     }
     
     @Override
@@ -47,4 +50,14 @@ public abstract class Survivor extends Character {
         // Combine the name with the weapon
         return String.format("%s (%s)", super.toString(), weaponName);
     }
+    
+    /**
+     * This is the weapon held by the character
+     */
+    private IWeapon weapon;
+    
+    /**
+     * This is the unarmed damage of the character
+     */
+    private final int unarmedDamage;
 }
