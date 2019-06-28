@@ -14,7 +14,12 @@ public abstract class Character {
         // If we are going below 0, set it to 0 and output to the kill feed
         if(otherCharacter.health <= damage) {
             otherCharacter.health = 0;
-            System.out.printf("    %s killed %s\n", this, otherCharacter);
+            if(this instanceof Zombie){
+                System.out.printf("    %s killed %s %s\n", this, otherCharacter.getTypeName(),otherCharacter.name);
+            }else{
+                System.out.printf("    %s killed %s\n", this, otherCharacter);
+            }
+            //If a Zombie kills a Survivor, do not print out the Survivor's weapon in the kill feed
         }
         else {
             otherCharacter.health -= damage;

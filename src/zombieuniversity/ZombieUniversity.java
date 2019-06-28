@@ -6,16 +6,17 @@
 package zombieuniversity;
 
 import zombieuniversity.character.*;
-
 public class ZombieUniversity {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Survivor[] survivors = new CharacterFactory().randomSurvivorArray(0, 35);
-        Zombie[] zombies = new CharacterFactory().randomZombieArray(0, 25);
+        CharacterFactory factory=new CharacterFactory();
+        Survivor[] survivors = factory.randomSurvivorArray(0, 35);
+        factory.equipSurvivors(survivors);
+        //equip the survivors with weapons from a randomly generated cache
+        Zombie[] zombies = factory.randomZombieArray(0, 25);
         
         // Count the number of character types in each array
         int teachers = 0, soldiers = 0, children = 0;
